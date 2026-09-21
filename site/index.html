@@ -137,29 +137,73 @@ section{padding-block:80px;border-bottom:1px solid var(--line)}
 .truck .btn{--bd:#140A02;--fg:#140A02;justify-self:start;margin-left:6px}
 .truck .btn:hover{--bg:#140A02;--bd:#140A02;--fg:var(--orange)}
 
-/* oils */
-.oils{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
-.oils{align-items:start}
-.brands{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.brands li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
-.brands b{font-family:var(--display);font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.15;transform:skewX(-8deg);transform-origin:left}
-.brands li:nth-child(odd) b{color:var(--amber)}
-table.price{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.price td,.price th{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:baseline}
+/* calc */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.form{display:grid;gap:10px}
+.form label{font:600 14px var(--body);margin-top:12px}
+.form label b{color:var(--amber)}
+.form select,.form input[type=text]{width:100%;padding:14px 14px;background:var(--pan);color:var(--paper);border:1px solid var(--line);font:400 16px var(--body);border-radius:0;appearance:none}
+.form select{background-image:linear-gradient(45deg,transparent 50%,var(--orange) 50%),linear-gradient(135deg,var(--orange) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.form select:focus,.form input:focus{outline:2px solid var(--orange);outline-offset:0}
+.form input[type=range]{width:100%;accent-color:var(--orange);height:28px}
+.hint{margin:0;font-size:13px;color:var(--mute)}
+.receipt{background:var(--paper);color:#1A1208;padding:26px 26px 22px;display:grid;gap:12px;font-variant-numeric:tabular-nums;position:relative}
+.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px repeat-x,linear-gradient(45deg,transparent 7px,var(--paper) 0) 0 0/14px 10px repeat-x;transform:scaleY(-1)}
+.receipt .mono{color:#6B5D4E}
+.rhead{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px dashed #9C8E7C}
+.rline,.rtotal{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rline b{font:600 15px var(--mono);white-space:nowrap}
+.rsub{margin:-6px 0 0;font-size:13px;color:#6B5D4E}
+.rtotal{border-top:1px dashed #9C8E7C;padding-top:14px;margin-top:4px;font-weight:700}
+.rtotal b{font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1;white-space:nowrap}
+.receipt .btn{margin:8px 6px 4px;--fg:#140A02}
+.receipt .btn:hover{--bg:#140A02;--bd:#140A02;--fg:var(--paper)}
+.receipt .barcode{margin-top:6px;background:repeating-linear-gradient(90deg,#1A1208 0 2px,transparent 2px 5px,#1A1208 5px 6px,transparent 6px 10px,#1A1208 10px 13px,transparent 13px 15px);height:34px;max-width:240px}
+.sub{font-size:24px;margin:72px 0 18px;transform:skewX(-8deg);transform-origin:left}
+.tscroll{overflow-x:auto}
+table.price{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:560px}
+.price td,.price th{padding:13px 16px 13px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:baseline}
 .price th{font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.price td:last-child,.price th:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;padding-left:16px}
-.note{font-size:13px;color:var(--mute);margin-top:12px}
+.price td:first-child{font-weight:700;white-space:nowrap}
+.price td:nth-child(2){color:#CFC4B8;font-size:14px}
+.price td:nth-child(n+3),.price th:nth-child(n+3){text-align:right;font-family:var(--mono);white-space:nowrap;padding-right:0;padding-left:16px}
+.price td:nth-child(4){color:var(--amber)}
+.note{font-size:13px;color:var(--mute);margin-top:14px;max-width:60em}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.why figure{margin:0;background:var(--pan);border:1px solid var(--line);display:grid;align-content:start}
+.why img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.why figcaption{padding:20px;display:grid;gap:8px}
+.why h3{font-size:20px;line-height:1.15;transform:skewX(-8deg);transform-origin:left}
+.why p{margin:0;color:#CFC4B8;font-size:15px}
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof div{padding:20px 16px;border-right:1px solid var(--line);display:grid;gap:4px}
+.proof div:first-child{padding-left:0}
+.proof div:last-child{border-right:0}
+.proof b{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,48px);color:var(--amber);line-height:1.05}
+
+/* final */
+.final{background:var(--orange);color:#140A02;border-bottom:0;text-align:left}
+.final .wrap{display:grid;gap:22px}
+.final h2{font-size:clamp(40px,7vw,96px)}
+.final p{margin:0;font-size:19px;font-weight:500;max-width:34em}
+.btn.dark{--bg:#140A02;--bd:#140A02;--fg:var(--paper)}
+.btn.dark:hover{--bg:var(--paper);--bd:var(--paper);--fg:#140A02}
+.btn.line{--bd:#140A02;--fg:#140A02}
+.btn.line:hover{--bg:#140A02;--bd:#140A02;--fg:var(--orange)}
 
 /* footer */
-footer{padding-block:56px 110px}
-footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
-footer a{text-decoration:none}
-footer a:hover{color:var(--orange)}
-footer .grid>div:first-child{grid-column:span 2}
-@media (max-width:600px){footer .grid>div:first-child{grid-column:auto}}
-footer .big{white-space:nowrap;font-family:var(--display);font-size:clamp(28px,4vw,40px);color:var(--amber);display:block;transform:skewX(-10deg);transform-origin:left}
-footer p{margin:6px 0 0;color:#CFC4B8}
-.barcode{height:36px;margin-top:40px;background:repeating-linear-gradient(90deg,var(--line) 0 2px,transparent 2px 5px,var(--line) 5px 6px,transparent 6px 10px,var(--line) 10px 13px,transparent 13px 15px);max-width:280px}
+footer{padding-block:28px 100px}
+.foot{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-left:auto}
+.foot nav a{text-decoration:none;font-size:14px;color:#CFC4B8}
+.foot nav a:hover{color:var(--orange)}
+.foot>.mono{flex-basis:100%}
+.barcode{height:36px}
+.reel .slides{position:relative;aspect-ratio:9/16;background:#000;overflow:hidden}
+.reel .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.reel .slides img.on{opacity:1}
 
 .float{display:none}
 @media (max-width:900px){
@@ -171,7 +215,13 @@ footer p{margin:6px 0 0;color:#CFC4B8}
   .mapbox{position:static}
   .truck{grid-template-columns:1fr}
   .truck img{min-height:220px;max-height:320px}
-  .oils{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof div:nth-child(2){border-right:0}
+  .proof div:nth-child(3){padding-left:0}
+  .proof div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .foot nav{margin-left:0}
 }
 @media (max-width:600px){
   .top .wrap{gap:12px}
@@ -199,7 +249,7 @@ footer p{margin:6px 0 0;color:#CFC4B8}
       <small>авто</small><b>HELPER</b>
     </a>
     <nav aria-label="Разделы">
-      <a href="#process">Процесс</a><a href="#points">Точки</a><a href="#services">Услуги</a><a href="#truck">Грузовой центр</a><a href="#oils">Масла</a>
+      <a href="#process">Процесс</a><a href="#points">Точки</a><a href="#services">Услуги</a><a href="#truck">Грузовой центр</a><a href="#oils">Цены</a>
     </nav>
     <a class="tel" href="tel:+77080097575">+7 708 009 75 75</a>
   </div>
@@ -312,39 +362,89 @@ footer p{margin:6px 0 0;color:#CFC4B8}
 <section id="oils">
   <div class="wrap">
     <div class="shead">
-      <span class="mono">Масла и цены</span>
-      <h2><span class="slant">Что в канистрах</span></h2>
-      <p>Японские, итальянские, корейские и французские бренды — в канистрах и на розлив.</p>
+      <span class="mono">Цены · прайс 2ГИС</span>
+      <h2><span class="slant">Сколько выйдет замена</span></h2>
+      <p>Чек складывается из трёх строк: масло по литрам, фильтр под вашу машину и работа. Масло — самая большая часть, её можно посчитать прямо здесь.</p>
     </div>
-    <div class="oils">
-      <ul class="brands"><li><b>Eni</b><span class="mono">Италия</span></li><li><b>ENEOS</b><span class="mono">Япония</span></li><li><b>Idemitsu</b><span class="mono">Япония</span></li><li><b>Total</b><span class="mono">Франция</span></li><li><b>Elf</b><span class="mono">Франция</span></li><li><b>Kixx</b><span class="mono">Корея</span></li></ul>
-      <div>
-        <table class="price">
-          <thead><tr><th>Позиция</th><th>Цена</th></tr></thead>
-          <tbody>
-            <tr><td>ENI i-Sint 5W-40</td><td>19 400 ₸</td></tr>
-            <tr><td>ENEOS Premium Touring 5W-30, 4 л</td><td>19 200 ₸</td></tr>
-            <tr><td>ENEOS Premium Touring 5W-40, 4 л</td><td>19 200 ₸</td></tr>
-            <tr><td>Fuel System Cleaner Plus</td><td>5 760 ₸</td></tr>
-          </tbody>
-        </table>
-        <p class="note">Цены из прайса в 2ГИС (пр. Санкибай батыра, 179), сентябрь 2026. Актуальную цену уточняйте в WhatsApp.</p>
+    <div class="calc">
+      <form class="form" id="calcForm" onsubmit="return false">
+        <label for="oil">Масло</label>
+        <select id="oil"></select>
+        <p class="hint" id="oilHint"></p>
+        <label for="liters">Сколько литров в двигателе: <b id="litersOut">4</b> л</label>
+        <input type="range" id="liters" min="3" max="10" step="0.5" value="4">
+        <p class="hint">Не знаете объём? Оставьте 4 л — мастер уточнит по марке и отольёт из бочки ровно столько, сколько нужно.</p>
+        <label for="car">Машина</label>
+        <input type="text" id="car" placeholder="Например: Toyota Camry 2.5, 2018" autocomplete="off">
+        <label for="point">Куда приедете</label>
+        <select id="point"></select>
+      </form>
+      <div class="receipt" aria-live="polite">
+        <div class="rhead"><span class="mono">Авто Helper · расчёт</span><span class="mono" id="rDate"></span></div>
+        <div class="rline"><span id="rOil">Масло</span><b id="rOilSum">—</b></div>
+        <p class="rsub" id="rPack"></p>
+        <div class="rline"><span>Масляный фильтр</span><b>по машине</b></div>
+        <div class="rline"><span>Работа: слив, фильтр, заливка</span><b>уточним</b></div>
+        <div class="rtotal"><span>Масло, итого</span><b id="rTotal">—</b></div>
+        <a class="btn main" id="rSend" href="#" target="_blank" rel="noopener">Отправить расчёт в WhatsApp</a>
+        <p class="rsub">Ответим точной суммой с фильтром и работой. Оплата картой, QR, наличными или Kaspi Red.</p>
+        <div class="barcode" aria-hidden="true"></div>
       </div>
+    </div>
+
+    <h3 class="sub">Прайс на популярные масла</h3>
+    <div class="tscroll">
+    <table class="price">
+      <thead><tr><th>Масло</th><th>Кому подходит</th><th>1 л</th><th>4 л</th></tr></thead>
+      <tbody id="priceBody"></tbody>
+    </table>
+    </div>
+    <p class="note">Цены из прайса Авто Helper в 2ГИС (обновлён 5 ноября 2025). В наличии также Liqui Moly, TAIF, Automax, Idemitsu, Total, Elf, Kixx — цену подскажем в WhatsApp.</p>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono">Почему к нам</span>
+      <h2><span class="slant">За что ставят 5,0</span></h2>
+    </div>
+    <div class="why">
+      <figure><img src="img/why-barrel.jpg" alt="Масло наливают из бочки Eni в мерную канистру" loading="lazy"><figcaption><h3>Платите за литры, не за канистру</h3><p>Нужно 4,5 литра — отольём 4,5 из бочки. Остатки в багажнике не катаются.</p></figcaption></figure>
+      <figure><img src="img/why-box.jpg" alt="Мастер у машины в боксе Авто Helper" loading="lazy"><figcaption><h3>Всё при вас</h3><p>Видно, что слили, какой фильтр поставили и что залили. Процесс снят на видео выше.</p></figcaption></figure>
+      <figure><img src="img/why-out.jpg" alt="Машина выезжает из бокса после замены масла" loading="lazy"><figcaption><h3>Заехали — поменяли — уехали</h3><p>Пять точек, каждый день с 09:00, флагман на Санкибай батыра — до 22:00.</p></figcaption></figure>
+    </div>
+    <div class="proof">
+      <div><b>968</b><span class="mono">оценок в 2ГИС</span></div>
+      <div><b>5,0</b><span class="mono">рейтинг сети</span></div>
+      <div><b>10 лет</b><span class="mono">в Актобе</span></div>
+      <div><b>5</b><span class="mono">точек без выходных</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="final" class="final">
+  <div class="wrap">
+    <h2><span class="slant">Пора менять масло?</span></h2>
+    <p>Напишите марку машины — ответим, какое масло подойдёт, сколько выйдет и на какой точке удобнее.</p>
+    <div class="cta">
+      <a class="btn dark" href="https://wa.me/77080097575" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btn line" href="tel:+77080097575">Позвонить: +7 708 009 75 75</a>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="grid">
-      <div><span class="mono">Телефон и WhatsApp</span><a class="big" href="tel:+77080097575">+7 708 009 75 75</a></div>
-      <div><span class="mono">Соцсети</span><p><a href="https://instagram.com/avto_helper" target="_blank" rel="noopener">Instagram @avto_helper</a></p><p><a href="https://youtube.com/channel/UCrZmeX9JBmr2U2XuQ3R6nXQ" target="_blank" rel="noopener">YouTube</a></p></div>
-      <div><span class="mono">Почта</span><p><a href="mailto:avtohelper3@miagroup.kz">avtohelper3@miagroup.kz</a></p></div>
-      <div><span class="mono">Оплата</span><p>Карта, наличные, перевод, QR, Kaspi Red</p></div>
-    </div>
-    <div class="barcode" aria-hidden="true"></div>
-    <p class="mono" style="margin-top:10px">Авто Helper · Актобе · Данные точек — 2ГИС, 21.09.2026</p>
+  <div class="wrap foot">
+    <a class="logo" href="#"><svg viewBox="0 0 22 28" aria-hidden="true"><path d="M11 0C11 0 0 13 0 18.5a11 9.5 0 0 0 22 0C22 13 11 0 11 0Z" fill="#FF6B0F"/></svg><small>авто</small><b>HELPER</b></a>
+    <nav aria-label="Контакты">
+      <a href="https://instagram.com/avto_helper" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com/channel/UCrZmeX9JBmr2U2XuQ3R6nXQ" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:avtohelper3@miagroup.kz">avtohelper3@miagroup.kz</a>
+      <a href="https://2gis.kz/aktobe/firm/70000001032739513" target="_blank" rel="noopener">2ГИС</a>
+    </nav>
+    <span class="mono">Актобе · данные точек — 2ГИС, 21.09.2026</span>
   </div>
 </footer>
 <a class="float hide" id="float" href="https://wa.me/77080097575" target="_blank" rel="noopener"><span><i>Написать в WhatsApp</i></span></a>
@@ -416,8 +516,42 @@ document.getElementById("nearBtn").addEventListener("click",()=>{const msg=docum
 // float CTA: hide while hero buttons are on screen
 if('IntersectionObserver' in window){new IntersectionObserver(e=>document.getElementById('float').classList.toggle('hide',e[0].isIntersecting)).observe(document.querySelector('.cta'))}else{document.getElementById('float').classList.remove('hide')}
 
-// hero video
-(function(){const v=document.getElementById('reel'),b=document.getElementById('reelBtn');
+// no hash jumps / restore-to-middle on reload
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(location.hash){history.replaceState(null,'',location.pathname+location.search);scrollTo(0,0)}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);e.preventDefault();const t=id?document.getElementById(id):document.body;if(t)t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}));
+
+// prices (2ГИС, прайс от 05.11.2025): [name, for, 1l, 4l]
+const OILS=[
+ ["Eni i-Sint 5W-40","Универсальная синтетика, бензин и дизель. MB 229.5, VW 502/505, BMW LL-01",5000,19400],
+ ["Eni i-Sint 5W-30","Свежие авто с катализатором и сажевым фильтром. ACEA C3, VW 504/507",6000,22200],
+ ["Eni i-Sint 0W-20","Новые авто и гибриды, Start&Stop. API SN, ILSAC GF-5",5800,22700],
+ ["Eni i-Sint 0W-40","Мощные моторы и холодный пуск. Porsche A40, MB 229.5",6400,23600],
+ ["Eni i-Sint 10W-40","Полусинтетика для авто с пробегом, в т.ч. турбо",4400,16200],
+ ["Eni i-Sint Professional 10W-40","Самая доступная полусинтетика. API SN/CF",4100,15800]
+];
+const fmt=n=>n.toLocaleString('ru-RU').replace(/\u00a0/g,' ')+' ₸';
+document.getElementById('priceBody').innerHTML=OILS.map(o=>`<tr><td>${o[0]}</td><td>${o[1]}</td><td>${fmt(o[2])}</td><td>${fmt(o[3])}</td></tr>`).join('');
+const $=id=>document.getElementById(id);
+$('oil').innerHTML=OILS.map((o,i)=>`<option value="${i}">${o[0]} — ${fmt(o[2])} за литр</option>`).join('');
+$('point').innerHTML=POINTS.map((p,i)=>`<option value="${i}">${p.addr} · до ${p.to}:00</option>`).join('');
+$('rDate').textContent=new Date().toLocaleDateString('ru-RU');
+function calc(){const o=OILS[+$('oil').value],L=+$('liters').value,c4=Math.floor(L/4),c1=L-4*c4,Ls=String(L).replace('.',',');
+ const total=c4*o[3]+c1*o[2];$('litersOut').textContent=Ls;$('oilHint').textContent=o[1];
+ $('rOil').textContent=`${o[0]}, ${Ls} л`;$('rOilSum').textContent=fmt(total);$('rTotal').textContent=fmt(total);
+ $('rPack').textContent=[c4?`${c4} × 4 л по ${fmt(o[3])}`:'',c1?`${String(c1).replace('.',',')} л на розлив по ${fmt(o[2])}`:''].filter(Boolean).join(' + ');
+ const car=$('car').value.trim(),pt=POINTS[+$('point').value];
+ const msg=`Здравствуйте! Хочу поменять масло.\nМашина: ${car||'уточню'}\nМасло: ${o[0]}, ${Ls} л (≈${fmt(total)})\nТочка: ${pt.addr}\nПодскажите итог с фильтром и работой.`;
+ $('rSend').href='https://wa.me/77080097575?text='+encodeURIComponent(msg)}
+['oil','liters','car','point'].forEach(id=>$(id).addEventListener('input',calc));calc();
+
+// hero video, with slideshow fallback where video can't load
+(function(){const v=$('reel'),b=$('reelBtn');let fell=false;
+ function fallback(){if(fell)return;fell=true;const box=document.createElement('div');box.className='slides';
+  for(let i=1;i<=8;i++){const im=new Image();im.src=`video/f${i}.jpg`;im.alt='';if(i===1)im.className='on';box.appendChild(im)}
+  v.replaceWith(box);b.hidden=true;let k=0;const ims=box.children;
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{ims[k].classList.remove('on');k=(k+1)%ims.length;ims[k].classList.add('on')},2200)}
+ v.addEventListener('error',fallback);setTimeout(()=>{if(v.readyState<2)fallback()},5000);
  if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}
  const sync=()=>b.textContent=v.paused?'Смотреть':'Пауза';
  b.addEventListener('click',()=>{v.paused?v.play():v.pause()});v.addEventListener('play',sync);v.addEventListener('pause',sync);sync()})();
