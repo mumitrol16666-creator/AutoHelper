@@ -42,21 +42,31 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;l
 .top .tel{font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--amber);white-space:nowrap}
 
 /* hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-#flow{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero .wrap{position:relative;padding-block:72px 56px;display:grid;gap:36px}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:
+  repeating-linear-gradient(102deg,transparent 0 118px,rgba(255,107,15,.05) 118px 120px),var(--oil)}
+.hero .wrap{position:relative;padding-block:56px 64px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px 56px;align-items:center}
+.hero .txt{display:grid;gap:32px}
+.reel{position:relative;background:var(--pan);border:1px solid var(--line);box-shadow:14px 14px 0 var(--orange)}
+.reel .bar{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.reel .bar:last-child{border-bottom:0;border-top:1px solid var(--line);align-items:center}
+.reel .rec::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:8px;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.reel button{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--amber);background:none;border:0;padding:4px 0;cursor:pointer}
+.reel button:hover{color:var(--paper)}
 .batch{display:flex;flex-wrap:wrap;gap:8px 24px}
-.hero h1{font-size:clamp(46px,9vw,118px);letter-spacing:-.01em}
+.hero h1{font-size:clamp(44px,7.6vw,104px);letter-spacing:-.01em}
 .hero h1 span{display:block;transform:skewX(-10deg);transform-origin:left}
 .hero h1 span:nth-child(2){color:var(--orange);padding-left:.5em}
 .hero h1 span:nth-child(3){padding-left:1em}
 .hero p.lead{max-width:34em;font-size:18px;color:#D9CFC3;margin:0}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font:600 15px var(--body);text-decoration:none;border:1.5px solid var(--paper);color:var(--paper);background:transparent;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
-.btn.main{background:var(--orange);border-color:var(--orange);color:#140A02}
-.btn:hover{background:var(--paper);color:var(--oil);border-color:var(--paper)}
-.btn.main:hover{background:var(--amber);border-color:var(--amber)}
-.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:720px}
+.cta{display:flex;flex-wrap:wrap;gap:14px 22px;padding-left:6px}
+.btn{--bd:var(--paper);--bg:transparent;--fg:var(--paper);position:relative;z-index:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;font:700 15px var(--body);text-decoration:none;border:0;background:none;color:var(--fg);cursor:pointer;transition:color .15s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:skewX(-12deg);border:2px solid var(--bd);background:var(--bg);transition:background .15s,border-color .15s}
+.btn.main{--bd:var(--orange);--bg:var(--orange);--fg:#140A02}
+.btn:hover{--bg:var(--paper);--bd:var(--paper);--fg:var(--oil)}
+.btn.main:hover{--bg:var(--amber);--bd:var(--amber)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:640px}
 .spec div{padding:14px 16px 12px;border-right:1px solid var(--line)}
 .spec div:first-child{padding-left:0}
 .spec div:last-child{border-right:0}
@@ -64,9 +74,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;l
 
 /* sections */
 section{padding-block:80px;border-bottom:1px solid var(--line)}
-.shead{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:40px;align-items:end}
+.shead{display:grid;gap:14px;margin-bottom:44px}
+.shead .mono{color:var(--orange)}
 .shead h2{font-size:clamp(34px,5.5vw,64px)}
-.shead p{grid-column:2;margin:0;color:#D9CFC3;max-width:36em}
+.shead p{margin:6px 0 0;color:#D9CFC3;max-width:36em}
 
 /* map + list */
 .locs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
@@ -98,6 +109,14 @@ section{padding-block:80px;border-bottom:1px solid var(--line)}
 .card .links a{font:600 14px var(--body);color:var(--orange);text-decoration:none;border-bottom:1px solid transparent}
 .card .links a:hover{border-color:var(--orange)}
 
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.steps li{display:grid;gap:8px;align-content:start}
+.steps img{display:block;width:100%;aspect-ratio:5/6;object-fit:cover;border:1px solid var(--line);margin-bottom:6px}
+.steps .mono{color:var(--orange)}
+.steps h3{font-size:20px;transform:skewX(-8deg);transform-origin:left}
+.steps p{margin:0;color:#CFC4B8;font-size:15px}
+
 /* services */
 .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .svc div{padding:22px 20px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
@@ -106,20 +125,25 @@ section{padding-block:80px;border-bottom:1px solid var(--line)}
 .svc .mono{color:var(--orange)}
 
 /* truck */
-.truck{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;background:var(--orange);color:#140A02}
-.truck img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px}
-.truck .t{padding:40px 36px;display:grid;gap:18px;align-content:center}
-.truck h2{font-size:clamp(32px,4.6vw,54px)}
+.truck{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:var(--orange);color:#140A02;max-width:1400px;margin:0 auto}
+.truck img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px;max-height:640px}
+.truck .t{padding:56px clamp(24px,4vw,56px);display:grid;gap:20px;align-content:center}
+.truck h2{font-size:clamp(40px,6vw,84px);line-height:.95}
+.truck h2 small{display:block;font-size:.42em;line-height:1.1;margin-top:.35em}
+.truck .ast{font-size:13px;margin:0;opacity:.75}
 .truck .mono{color:#4A2206}
 .truck ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-weight:500}
 .truck li::before{content:"— "}
-.truck .btn{border-color:#140A02;color:#140A02;justify-self:start}
-.truck .btn:hover{background:#140A02;color:var(--orange)}
+.truck .btn{--bd:#140A02;--fg:#140A02;justify-self:start;margin-left:6px}
+.truck .btn:hover{--bg:#140A02;--bd:#140A02;--fg:var(--orange)}
 
 /* oils */
 .oils{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
-.brands{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--display);font-size:clamp(24px,3.4vw,38px);line-height:1.2}
-.brands span:nth-child(odd){color:var(--amber)}
+.oils{align-items:start}
+.brands{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.brands li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.brands b{font-family:var(--display);font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.15;transform:skewX(-8deg);transform-origin:left}
+.brands li:nth-child(odd) b{color:var(--amber)}
 table.price{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .price td,.price th{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:baseline}
 .price th{font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
@@ -139,14 +163,15 @@ footer p{margin:6px 0 0;color:#CFC4B8}
 
 .float{display:none}
 @media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .reel{max-width:360px;margin-right:14px!important}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .top nav{display:none}
   .locs{grid-template-columns:1fr}
   .mapbox{position:static}
   .truck{grid-template-columns:1fr}
   .truck img{min-height:220px;max-height:320px}
   .oils{grid-template-columns:1fr}
-  .shead{grid-template-columns:1fr}
-  .shead p{grid-column:1}
 }
 @media (max-width:600px){
   .top .wrap{gap:12px}
@@ -158,7 +183,8 @@ footer p{margin:6px 0 0;color:#CFC4B8}
   .truck .t{padding:28px 20px}
   section{padding-block:56px}
   .float{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;text-decoration:none;filter:drop-shadow(0 0 0 #140A02) drop-shadow(0 6px 14px rgba(0,0,0,.7));transition:transform .25s,opacity .25s}
-  .float span{flex:1;text-align:center;background:var(--orange);color:#140A02;font:700 16px var(--body);padding:15px;border:2px solid #140A02;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+  .float span{flex:1;text-align:center;background:var(--orange);color:#140A02;font:700 16px var(--body);padding:15px;border:2px solid #140A02;transform:skewX(-10deg)}
+  .float span i{display:block;font-style:normal;transform:skewX(10deg)}
   .float.hide{transform:translateY(140%);opacity:0;pointer-events:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -173,7 +199,7 @@ footer p{margin:6px 0 0;color:#CFC4B8}
       <small>авто</small><b>HELPER</b>
     </a>
     <nav aria-label="Разделы">
-      <a href="#points">Точки</a><a href="#services">Услуги</a><a href="#truck">Грузовой центр</a><a href="#oils">Масла</a>
+      <a href="#process">Процесс</a><a href="#points">Точки</a><a href="#services">Услуги</a><a href="#truck">Грузовой центр</a><a href="#oils">Масла</a>
     </nav>
     <a class="tel" href="tel:+77080097575">+7 708 009 75 75</a>
   </div>
@@ -181,8 +207,8 @@ footer p{margin:6px 0 0;color:#CFC4B8}
 
 <main>
 <div class="hero">
-  <canvas id="flow" aria-hidden="true"></canvas>
   <div class="wrap">
+   <div class="txt">
     <div class="batch">
       <span class="mono">Актобе · 10 лет с вами</span>
       <span class="mono">Партия № AH-05 / 5 точек</span>
@@ -199,13 +225,35 @@ footer p{margin:6px 0 0;color:#CFC4B8}
       <div role="listitem"><span class="mono">Точек в городе</span><b>5</b></div>
       <div role="listitem"><span class="mono">Рейтинг 2ГИС</span><b>5,0</b></div>
     </div>
+   </div>
+   <figure class="reel" style="margin:0">
+     <div class="bar"><span class="mono rec">В боксе</span><span class="mono">пр. Кенес Нокина</span></div>
+     <video id="reel" src="video/process.mp4" poster="video/poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Видео: замена масла в боксе Авто Helper"></video>
+     <div class="bar"><span class="mono">Замена масла · 34 сек</span><button type="button" id="reelBtn">Пауза</button></div>
+   </figure>
   </div>
 </div>
+
+<section id="process">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono">Как это идёт</span>
+      <h2><span class="slant">Четыре шага, один заезд</span></h2>
+      <p>Кадры из нашего бокса на Кенес Нокина. Вы видите, что сливают и что заливают.</p>
+    </div>
+    <ol class="steps">
+      <li><img src="img/step1.jpg" alt="Слив отработанного масла из картера" loading="lazy"><span class="mono">Шаг 1</span><h3>Сливаем отработку</h3><p>Машина на яме, старое масло уходит полностью.</p></li>
+      <li><img src="img/step2.jpg" alt="Замена масляного фильтра под машиной" loading="lazy"><span class="mono">Шаг 2</span><h3>Меняем фильтр</h3><p>Новый масляный фильтр — вместе с маслом, не «в следующий раз».</p></li>
+      <li><img src="img/step3.jpg" alt="Мастер наливает масло из бочки Eni в мерную канистру" loading="lazy"><span class="mono">Шаг 3</span><h3>Отмеряем из бочки</h3><p>Масло на розлив: ровно столько литров, сколько нужно двигателю.</p></li>
+      <li><img src="img/step4.jpg" alt="Заливка свежего масла в двигатель через воронку" loading="lazy"><span class="mono">Шаг 4</span><h3>Заливаем и заводим</h3><p>Свежее масло в двигатель, проверка уровня — и в путь.</p></li>
+    </ol>
+  </div>
+</section>
 
 <section id="points">
   <div class="wrap">
     <div class="shead">
-      <span class="mono">Раздел 01 · Точки</span>
+      <span class="mono">Точки · 2ГИС</span>
       <h2><span class="slant">Пять боксов по городу</span></h2>
       <p>Статус «открыто» считается по времени Актобе. Нажмите метку на схеме, чтобы подсветить точку.</p>
     </div>
@@ -226,7 +274,7 @@ footer p{margin:6px 0 0;color:#CFC4B8}
 <section id="services">
   <div class="wrap">
     <div class="shead">
-      <span class="mono">Раздел 02 · Услуги</span>
+      <span class="mono">Услуги</span>
       <h2><span class="slant">Все жидкости — за один заезд</span></h2>
       <p>Масло можно купить и сразу залить на месте — аппаратная замена есть на каждой точке.</p>
     </div>
@@ -247,9 +295,9 @@ footer p{margin:6px 0 0;color:#CFC4B8}
   <div class="truck">
     <img src="img/p5-main.jpg" alt="Грузовой центр Авто Helper и Truck Oil на проспекте Кенес Нокина" loading="lazy">
     <div class="t">
-      <span class="mono">Раздел 03 · пр. Кенес Нокина, 22л/1</span>
-      <h2><span class="slant">Грузовой центр</span></h2>
-      <p style="margin:0;font-weight:500">Бесплатно заменим масло грузовым авто при покупке масла у нас.</p>
+      <span class="mono">Грузовой центр · пр. Кенес Нокина, 22л/1</span>
+      <h2><span class="slant">Бесплатно<small>заменим масло грузовым авто*</small></span></h2>
+      <p class="ast">*при покупке масла у нас. Грузовой центр Авто Helper + Truck Oil.</p>
       <ul>
         <li>HOWO, Shacman, XCMG — более 1000 наименований запчастей</li>
         <li>Грузовой и мотошиномонтаж, ремонт порезов</li>
@@ -264,12 +312,12 @@ footer p{margin:6px 0 0;color:#CFC4B8}
 <section id="oils">
   <div class="wrap">
     <div class="shead">
-      <span class="mono">Раздел 04 · Масла</span>
+      <span class="mono">Масла и цены</span>
       <h2><span class="slant">Что в канистрах</span></h2>
       <p>Японские, итальянские, корейские и французские бренды — в канистрах и на розлив.</p>
     </div>
     <div class="oils">
-      <div class="brands"><span>Eni</span><span>ENEOS</span><span>Idemitsu</span><span>Total</span><span>Elf</span><span>Kixx</span></div>
+      <ul class="brands"><li><b>Eni</b><span class="mono">Италия</span></li><li><b>ENEOS</b><span class="mono">Япония</span></li><li><b>Idemitsu</b><span class="mono">Япония</span></li><li><b>Total</b><span class="mono">Франция</span></li><li><b>Elf</b><span class="mono">Франция</span></li><li><b>Kixx</b><span class="mono">Корея</span></li></ul>
       <div>
         <table class="price">
           <thead><tr><th>Позиция</th><th>Цена</th></tr></thead>
@@ -299,7 +347,7 @@ footer p{margin:6px 0 0;color:#CFC4B8}
     <p class="mono" style="margin-top:10px">Авто Helper · Актобе · Данные точек — 2ГИС, 21.09.2026</p>
   </div>
 </footer>
-<a class="float hide" id="float" href="https://wa.me/77080097575" target="_blank" rel="noopener"><span>Написать в WhatsApp</span></a>
+<a class="float hide" id="float" href="https://wa.me/77080097575" target="_blank" rel="noopener"><span><i>Написать в WhatsApp</i></span></a>
 
 <script>
 const POINTS=[
@@ -368,27 +416,11 @@ document.getElementById("nearBtn").addEventListener("click",()=>{const msg=docum
 // float CTA: hide while hero buttons are on screen
 if('IntersectionObserver' in window){new IntersectionObserver(e=>document.getElementById('float').classList.toggle('hide',e[0].isIntersecting)).observe(document.querySelector('.cta'))}else{document.getElementById('float').classList.remove('hide')}
 
-// hero: oil flow field
-(function(){const c=document.getElementById("flow"),x=c.getContext("2d");let w,h,dpr,parts=[],mx=-999,my=-999,t=0;
- const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
- const P=new Uint8Array(512);(function(){const p=[...Array(256).keys()];let s=2015;for(let i=255;i>0;i--){s=(s*16807)%2147483647;const j=s%(i+1);[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)P[i]=p[i&255]})();
- const fade=v=>v*v*(3-2*v),lerp=(a,b,v)=>a+(b-a)*v,gr=(hh,xx,yy)=>((hh&1)?-xx:xx)+((hh&2)?-yy:yy);
- function noise(X,Y){const xi=Math.floor(X)&255,yi=Math.floor(Y)&255,xf=X-Math.floor(X),yf=Y-Math.floor(Y),u=fade(xf),v=fade(yf);
-  return lerp(lerp(gr(P[P[xi]+yi],xf,yf),gr(P[P[xi+1]+yi],xf-1,yf),u),lerp(gr(P[P[xi]+yi+1],xf,yf-1),gr(P[P[xi+1]+yi+1],xf-1,yf-1),u),v)}
- function size(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-  x.fillStyle="#0E0C0A";x.fillRect(0,0,w,h);const n=Math.round(Math.min(900,w*h/900));parts=Array.from({length:n},spawn)}
- function spawn(){return {x:Math.random()*w,y:Math.random()*h,l:60+Math.random()*160,a:Math.random()<.18}}
- function step(){x.fillStyle="rgba(14,12,10,0.06)";x.fillRect(0,0,w,h);t+=0.0016;
-  for(const p of parts){let ang=noise(p.x*0.0022,p.y*0.0022+t)*Math.PI*2.2+0.35;
-   const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;if(d2<14000){ang=Math.atan2(dy,dx)+Math.PI/2}
-   const nx=p.x+Math.cos(ang)*1.3,ny=p.y+Math.sin(ang)*1.3;
-   x.strokeStyle=p.a?"rgba(255,107,15,0.75)":"rgba(246,181,69,0.38)";x.lineWidth=p.a?1.6:1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();
-   p.x=nx;p.y=ny;if(--p.l<0||p.x<0||p.x>w||p.y<0||p.y>h)Object.assign(p,spawn())}}
- size();addEventListener("resize",size);
- c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
- c.parentElement.addEventListener("pointerleave",()=>{mx=my=-999});
- if(reduce){for(let i=0;i<260;i++)step()}else{for(let i=0;i<120;i++)step();(function loop(){step();requestAnimationFrame(loop)})()}
-})();
+// hero video
+(function(){const v=document.getElementById('reel'),b=document.getElementById('reelBtn');
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}
+ const sync=()=>b.textContent=v.paused?'Смотреть':'Пауза';
+ b.addEventListener('click',()=>{v.paused?v.play():v.pause()});v.addEventListener('play',sync);v.addEventListener('pause',sync);sync()})();
 </script>
 </body>
 </html>
