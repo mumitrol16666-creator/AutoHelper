@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Авто Helper — автомасла и замена масла в Актобе. 5 точек, ежедневно с 09:00, WhatsApp +7 708 009 75 75.">
+<meta name="theme-color" content="#0E0C0A">
+<title>Авто Helper Актобе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;600&family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --oil:#0E0C0A; --pan:#1A1612; --pan2:#231D17; --line:#3A3129;
+  --orange:#FF6B0F; --amber:#F6B545; --paper:#F2EAE0; --mute:#9C9086;
+  --ok:#7BD88F; --off:#E0685A;
+  --display:"Dela Gothic One","Arial Black",Impact,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--oil);color:var(--paper);font:400 16px/1.55 var(--body);margin:0;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.slant{display:inline-block;transform:skewX(-10deg);transform-origin:left bottom}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.02}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--oil) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo svg{width:22px;height:28px}
+.logo b{font-family:var(--display);font-size:22px;transform:skewX(-10deg);letter-spacing:.01em}
+.logo small{font-family:var(--body);font-size:12px;color:var(--mute);align-self:flex-start;margin-top:6px}
+.top nav{display:flex;gap:20px;margin-left:auto}
+.top nav a{text-decoration:none;font-size:14px;color:var(--mute)}
+.top nav a:hover{color:var(--paper)}
+.top .tel{font-family:var(--mono);font-size:14px;text-decoration:none;color:var(--amber);white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#flow{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;padding-block:72px 56px;display:grid;gap:36px}
+.batch{display:flex;flex-wrap:wrap;gap:8px 24px}
+.hero h1{font-size:clamp(46px,9vw,118px);letter-spacing:-.01em}
+.hero h1 span{display:block;transform:skewX(-10deg);transform-origin:left}
+.hero h1 span:nth-child(2){color:var(--orange);padding-left:.5em}
+.hero h1 span:nth-child(3){padding-left:1em}
+.hero p.lead{max-width:34em;font-size:18px;color:#D9CFC3;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font:600 15px var(--body);text-decoration:none;border:1.5px solid var(--paper);color:var(--paper);background:transparent;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.btn.main{background:var(--orange);border-color:var(--orange);color:#140A02}
+.btn:hover{background:var(--paper);color:var(--oil);border-color:var(--paper)}
+.btn.main:hover{background:var(--amber);border-color:var(--amber)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:720px}
+.spec div{padding:14px 16px 12px;border-right:1px solid var(--line)}
+.spec div:first-child{padding-left:0}
+.spec div:last-child{border-right:0}
+.spec b{display:block;font-family:var(--display);font-size:clamp(28px,5vw,44px);color:var(--amber);font-weight:400;line-height:1.1}
+
+/* sections */
+section{padding-block:80px;border-bottom:1px solid var(--line)}
+.shead{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:40px;align-items:end}
+.shead h2{font-size:clamp(34px,5.5vw,64px)}
+.shead p{grid-column:2;margin:0;color:#D9CFC3;max-width:36em}
+
+/* map + list */
+.locs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
+.mapbox{position:sticky;top:84px;background:var(--pan);border:1px solid var(--line)}
+.mapbox svg{display:block;width:100%;height:auto}
+.maphead{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.mapfoot{padding:12px 14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+#nearMsg{font-size:13px;color:var(--mute);margin:0}
+.pin{cursor:pointer}
+.pin circle.halo{fill:var(--orange);opacity:.18;transition:r .2s}
+.pin circle.dot{fill:var(--orange);stroke:var(--oil);stroke-width:2}
+.pin text{fill:#140A02;font:700 11px var(--mono);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.on circle.dot{fill:var(--amber)}
+.pin.on circle.halo{opacity:.35}
+.cards{display:grid;gap:16px}
+.card{display:grid;grid-template-columns:200px minmax(0,1fr);background:var(--pan);border:1px solid var(--line);transition:border-color .2s}
+.card.on{border-color:var(--orange)}
+.card img{width:100%;height:100%;min-height:190px;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
+.card .body{padding:18px 20px;display:grid;gap:10px;align-content:start}
+.card .row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.card h3{font-size:22px;line-height:1.15}
+.card h3 .n{font-family:var(--mono);font-size:13px;color:var(--orange);margin-right:8px;vertical-align:middle}
+.card p{margin:0;color:#D9CFC3;font-size:15px}
+.chip{font:600 12px var(--mono);letter-spacing:.04em;padding:3px 8px;border:1px solid currentColor;white-space:nowrap}
+.chip.open{color:var(--ok)} .chip.closed{color:var(--off)}
+.hours,.rate{font:400 13px var(--mono);color:var(--mute);font-variant-numeric:tabular-nums}
+.rate b{color:var(--amber);font-weight:600}
+.card .links{display:flex;flex-wrap:wrap;gap:16px;margin-top:4px}
+.card .links a{font:600 14px var(--body);color:var(--orange);text-decoration:none;border-bottom:1px solid transparent}
+.card .links a:hover{border-color:var(--orange)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc div{padding:22px 20px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.svc h3{font-size:20px;transform:skewX(-8deg);transform-origin:left}
+.svc p{margin:0;color:#CFC4B8;font-size:15px}
+.svc .mono{color:var(--orange)}
+
+/* truck */
+.truck{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;background:var(--orange);color:#140A02}
+.truck img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px}
+.truck .t{padding:40px 36px;display:grid;gap:18px;align-content:center}
+.truck h2{font-size:clamp(32px,4.6vw,54px)}
+.truck .mono{color:#4A2206}
+.truck ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-weight:500}
+.truck li::before{content:"— "}
+.truck .btn{border-color:#140A02;color:#140A02;justify-self:start}
+.truck .btn:hover{background:#140A02;color:var(--orange)}
+
+/* oils */
+.oils{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.brands{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--display);font-size:clamp(24px,3.4vw,38px);line-height:1.2}
+.brands span:nth-child(odd){color:var(--amber)}
+table.price{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.price td,.price th{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:baseline}
+.price th{font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.price td:last-child,.price th:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;padding-left:16px}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+
+/* footer */
+footer{padding-block:56px 110px}
+footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--orange)}
+footer .grid>div:first-child{grid-column:span 2}
+@media (max-width:600px){footer .grid>div:first-child{grid-column:auto}}
+footer .big{white-space:nowrap;font-family:var(--display);font-size:clamp(28px,4vw,40px);color:var(--amber);display:block;transform:skewX(-10deg);transform-origin:left}
+footer p{margin:6px 0 0;color:#CFC4B8}
+.barcode{height:36px;margin-top:40px;background:repeating-linear-gradient(90deg,var(--line) 0 2px,transparent 2px 5px,var(--line) 5px 6px,transparent 6px 10px,var(--line) 10px 13px,transparent 13px 15px);max-width:280px}
+
+.float{display:none}
+@media (max-width:900px){
+  .top nav{display:none}
+  .locs{grid-template-columns:1fr}
+  .mapbox{position:static}
+  .truck{grid-template-columns:1fr}
+  .truck img{min-height:220px;max-height:320px}
+  .oils{grid-template-columns:1fr}
+  .shead{grid-template-columns:1fr}
+  .shead p{grid-column:1}
+}
+@media (max-width:600px){
+  .top .wrap{gap:12px}
+  .top .tel{margin-left:auto;font-size:13px}
+  .hero .wrap{padding-block:48px 40px}
+  .card{grid-template-columns:1fr}
+  .card img{min-height:0;aspect-ratio:16/10;height:auto}
+  .spec div{padding-inline:10px}
+  .truck .t{padding:28px 20px}
+  section{padding-block:56px}
+  .float{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;text-decoration:none;filter:drop-shadow(0 0 0 #140A02) drop-shadow(0 6px 14px rgba(0,0,0,.7));transition:transform .25s,opacity .25s}
+  .float span{flex:1;text-align:center;background:var(--orange);color:#140A02;font:700 16px var(--body);padding:15px;border:2px solid #140A02;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+  .float.hide{transform:translateY(140%);opacity:0;pointer-events:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Авто Helper — наверх">
+      <svg viewBox="0 0 22 28" aria-hidden="true"><path d="M11 0C11 0 0 13 0 18.5a11 9.5 0 0 0 22 0C22 13 11 0 11 0Z" fill="#FF6B0F"/></svg>
+      <small>авто</small><b>HELPER</b>
+    </a>
+    <nav aria-label="Разделы">
+      <a href="#points">Точки</a><a href="#services">Услуги</a><a href="#truck">Грузовой центр</a><a href="#oils">Масла</a>
+    </nav>
+    <a class="tel" href="tel:+77080097575">+7 708 009 75 75</a>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <canvas id="flow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="batch">
+      <span class="mono">Актобе · 10 лет с вами</span>
+      <span class="mono">Партия № AH-05 / 5 точек</span>
+      <span class="mono">Ежедневно с 09:00</span>
+    </div>
+    <h1><span>Зальём.</span><span>Заменим.</span><span>Заведём.</span></h1>
+    <p class="lead">Магазин автомасел и замена всех техжидкостей для легковых, грузовых и спецтехники. Пять точек по городу, одна линия WhatsApp.</p>
+    <div class="cta">
+      <a class="btn main" href="https://wa.me/77080097575" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btn" href="#points">Найти ближайшую точку</a>
+    </div>
+    <div class="spec" role="list">
+      <div role="listitem"><span class="mono">Лет на рынке</span><b>10</b></div>
+      <div role="listitem"><span class="mono">Точек в городе</span><b>5</b></div>
+      <div role="listitem"><span class="mono">Рейтинг 2ГИС</span><b>5,0</b></div>
+    </div>
+  </div>
+</div>
+
+<section id="points">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono">Раздел 01 · Точки</span>
+      <h2><span class="slant">Пять боксов по городу</span></h2>
+      <p>Статус «открыто» считается по времени Актобе. Нажмите метку на схеме, чтобы подсветить точку.</p>
+    </div>
+    <div class="locs">
+      <div class="mapbox">
+        <div class="maphead"><span class="mono">Схема · Актобе</span><span class="mono" id="clock">--:-- UTC+5</span></div>
+        <svg id="map" viewBox="0 0 400 340" role="img" aria-label="Схема расположения пяти точек Авто Helper в Актобе"></svg>
+        <div class="mapfoot">
+          <p id="nearMsg">968 оценок в 2ГИС по всем точкам</p>
+          <button class="btn" id="nearBtn" type="button">Ближайшая ко мне</button>
+        </div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono">Раздел 02 · Услуги</span>
+      <h2><span class="slant">Все жидкости — за один заезд</span></h2>
+      <p>Масло можно купить и сразу залить на месте — аппаратная замена есть на каждой точке.</p>
+    </div>
+    <div class="svc">
+      <div><span class="mono">ДВС</span><h3>Замена масла</h3><p>Моторное масло и масляный фильтр. Масло своё или купленное у нас.</p></div>
+      <div><span class="mono">АКПП · вариатор</span><h3>Аппаратная замена</h3><p>Замена жидкости в коробке аппаратом, а не частичным сливом.</p></div>
+      <div><span class="mono">Фильтры</span><h3>Воздушный, салонный, топливный</h3><p>Подберём под вашу машину и поменяем вместе с маслом.</p></div>
+      <div><span class="mono">Охлаждение</span><h3>Замена антифриза</h3><p>Сольём старый и зальём свежий антифриз.</p></div>
+      <div><span class="mono">Климат</span><h3>Заправка кондиционера</h3><p>Заправим кондиционер к сезону.</p></div>
+      <div><span class="mono">Ходовая</span><h3>Шприцевание крестовин</h3><p>Смазка крестовин и узлов, особенно для грузовиков и спецтехники.</p></div>
+      <div><span class="mono">Розлив</span><h3>Масла на розлив</h3><p>Берите ровно столько литров, сколько нужно на долив.</p></div>
+      <div><span class="mono">Магазин</span><h3>Автохимия и аксессуары</h3><p>Спецжидкости, автокосметика, ароматизаторы. Розница и опт.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="truck" style="border-bottom:0;padding-block:0">
+  <div class="truck">
+    <img src="img/p5-main.jpg" alt="Грузовой центр Авто Helper и Truck Oil на проспекте Кенес Нокина" loading="lazy">
+    <div class="t">
+      <span class="mono">Раздел 03 · пр. Кенес Нокина, 22л/1</span>
+      <h2><span class="slant">Грузовой центр</span></h2>
+      <p style="margin:0;font-weight:500">Бесплатно заменим масло грузовым авто при покупке масла у нас.</p>
+      <ul>
+        <li>HOWO, Shacman, XCMG — более 1000 наименований запчастей</li>
+        <li>Грузовой и мотошиномонтаж, ремонт порезов</li>
+        <li>Двигатель, электрика, отопление и кондиционер, колодки</li>
+        <li>Запись заранее и доставка</li>
+      </ul>
+      <a class="btn" href="https://2gis.kz/aktobe/firm/70000001113257185" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+    </div>
+  </div>
+</section>
+
+<section id="oils">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono">Раздел 04 · Масла</span>
+      <h2><span class="slant">Что в канистрах</span></h2>
+      <p>Японские, итальянские, корейские и французские бренды — в канистрах и на розлив.</p>
+    </div>
+    <div class="oils">
+      <div class="brands"><span>Eni</span><span>ENEOS</span><span>Idemitsu</span><span>Total</span><span>Elf</span><span>Kixx</span></div>
+      <div>
+        <table class="price">
+          <thead><tr><th>Позиция</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>ENI i-Sint 5W-40</td><td>19 400 ₸</td></tr>
+            <tr><td>ENEOS Premium Touring 5W-30, 4 л</td><td>19 200 ₸</td></tr>
+            <tr><td>ENEOS Premium Touring 5W-40, 4 л</td><td>19 200 ₸</td></tr>
+            <tr><td>Fuel System Cleaner Plus</td><td>5 760 ₸</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Цены из прайса в 2ГИС (пр. Санкибай батыра, 179), сентябрь 2026. Актуальную цену уточняйте в WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><span class="mono">Телефон и WhatsApp</span><a class="big" href="tel:+77080097575">+7 708 009 75 75</a></div>
+      <div><span class="mono">Соцсети</span><p><a href="https://instagram.com/avto_helper" target="_blank" rel="noopener">Instagram @avto_helper</a></p><p><a href="https://youtube.com/channel/UCrZmeX9JBmr2U2XuQ3R6nXQ" target="_blank" rel="noopener">YouTube</a></p></div>
+      <div><span class="mono">Почта</span><p><a href="mailto:avtohelper3@miagroup.kz">avtohelper3@miagroup.kz</a></p></div>
+      <div><span class="mono">Оплата</span><p>Карта, наличные, перевод, QR, Kaspi Red</p></div>
+    </div>
+    <div class="barcode" aria-hidden="true"></div>
+    <p class="mono" style="margin-top:10px">Авто Helper · Актобе · Данные точек — 2ГИС, 21.09.2026</p>
+  </div>
+</footer>
+<a class="float hide" id="float" href="https://wa.me/77080097575" target="_blank" rel="noopener"><span>Написать в WhatsApp</span></a>
+
+<script>
+const POINTS=[
+ {id:"70000001032739513",addr:"пр. Санкибай батыра, 179",sub:"жилмассив Сазда-4, 8 · флагман",from:9,to:22,rating:"4,9",votes:535,lat:50.2796,lon:57.1583,img:"img/p1-main.jpg",note:"Самая долгая смена. Розница и опт, ароматизаторы, прайс из 54 позиций."},
+ {id:"70000001035980910",addr:"ул. Кунаева, 58",sub:"1 этаж · магазин-витрина",from:9,to:19,rating:"5,0",votes:183,lat:50.2931,lon:57.2217,img:"img/p2-main.jpg",note:"Витрина брендов: Idemitsu, Elf, Total, Eni, Kixx."},
+ {id:"70000001110557567",addr:"Богословская трасса, 143",sub:"бокс замены масла",from:9,to:19,rating:"5,0",votes:69,lat:50.2597,lon:57.1792,img:"img/p3-main.jpg",note:"Светлый бокс, аппаратная замена жидкостей."},
+ {id:"70000001103964452",addr:"ж/м Кирпичный, 33",sub:"бокс замены масла",from:9,to:20,rating:"5,0",votes:149,lat:50.3144,lon:57.2453,img:"img/p4-main.jpg",note:"Северо-восток города, работает до 20:00."},
+ {id:"70000001113257185",addr:"пр. Кенес Нокина, 22л/1",sub:"грузовой центр",from:9,to:18,rating:"5,0",votes:32,lat:50.3074,lon:57.2121,img:"img/p5-main.jpg",note:"HOWO, Shacman, XCMG, грузовой шиномонтаж, доставка."}
+];
+const WA="https://wa.me/77080097575?text="+encodeURIComponent("Здравствуйте! Пишу с сайта Авто Helper.");
+function aktobeNow(){const d=new Date(Date.now()+5*3600e3);return {h:d.getUTCHours(),m:d.getUTCMinutes()}}
+function isOpen(p){const t=aktobeNow();const x=t.h+t.m/60;return x>=p.from&&x<p.to}
+const pad=n=>String(n).padStart(2,"0");
+
+// cards
+const cardsEl=document.getElementById("cards");
+cardsEl.innerHTML=POINTS.map((p,i)=>`
+ <article class="card" id="card${i}" data-i="${i}">
+  <img src="${p.img}" alt="Точка Авто Helper, ${p.addr}" loading="lazy">
+  <div class="body">
+   <div class="row"><span class="chip" data-status="${i}"></span><span class="hours">${pad(p.from)}:00–${p.to}:00 ежедневно</span></div>
+   <h3><span class="n">${pad(i+1)}</span>${p.addr}</h3>
+   <span class="mono">${p.sub}</span>
+   <p>${p.note}</p>
+   <span class="rate"><b>★ ${p.rating}</b> · ${p.votes} оценок в 2ГИС</span>
+   <div class="links">
+    <a href="https://2gis.kz/aktobe/firm/${p.id}" target="_blank" rel="noopener">Маршрут в 2ГИС</a>
+    <a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>
+   </div>
+  </div>
+ </article>`).join("");
+
+// map
+const svg=document.getElementById("map"),NS="http://www.w3.org/2000/svg";
+const lonMin=57.13,lonMax=57.27,latMin=50.245,latMax=50.33,W=400,H=340,k=Math.cos(50.29*Math.PI/180);
+function proj(lat,lon){const sx=(W-60)/((lonMax-lonMin)*k),sy=(H-60)/(latMax-latMin),s=Math.min(sx,sy);
+ const cx=W/2-((lonMin+lonMax)/2-lonMin)*k*s, cy=H/2+((latMin+latMax)/2-latMin)*s;
+ return [cx+(lon-lonMin)*k*s, cy-(lat-latMin)*s]}
+function el(tag,attrs,parent=svg){const e=document.createElementNS(NS,tag);for(const a in attrs)e.setAttribute(a,attrs[a]);parent.appendChild(e);return e}
+// grid with real coordinates
+for(let lon=57.14;lon<=57.26;lon+=0.02){const [x]=proj(50.29,lon);el("line",{x1:x,y1:0,x2:x,y2:H,stroke:"#2A231C","stroke-width":1});const t=el("text",{x:x+3,y:H-6,fill:"#6E6258","font-size":9,"font-family":"JetBrains Mono, monospace"});t.textContent=lon.toFixed(2)+"°"}
+for(let lat=50.25;lat<=50.33;lat+=0.02){const [,y]=proj(lat,57.2);el("line",{x1:0,y1:y,x2:W,y2:y,stroke:"#2A231C","stroke-width":1});const t=el("text",{x:4,y:y-3,fill:"#6E6258","font-size":9,"font-family":"JetBrains Mono, monospace"});t.textContent=lat.toFixed(2)+"°"}
+// contour rings from city centre (схематично)
+const [ccx,ccy]=proj(50.285,57.2);[40,80,120,160].forEach(r=>el("circle",{cx:ccx,cy:ccy,r,fill:"none",stroke:"#3A3129","stroke-dasharray":"2 5"}));
+const lab=el("text",{x:ccx+6,y:ccy-6,fill:"#9C9086","font-size":10,"font-family":"JetBrains Mono, monospace"});lab.textContent="центр";
+const pins=POINTS.map((p,i)=>{const [x,y]=proj(p.lat,p.lon);const g=el("g",{class:"pin",tabindex:0,role:"button","aria-label":`Точка ${i+1}: ${p.addr}`});
+ el("circle",{class:"halo",cx:x,cy:y,r:16},g);el("circle",{class:"dot",cx:x,cy:y,r:10},g);const t=el("text",{x,y},g);t.textContent=i+1;
+ g.addEventListener("click",()=>focusPoint(i,true));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();focusPoint(i,true)}});return g});
+function focusPoint(i,scroll){pins.forEach((g,j)=>g.classList.toggle("on",i===j));document.querySelectorAll(".card").forEach((c,j)=>c.classList.toggle("on",i===j));
+ if(scroll)document.getElementById("card"+i).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"})}
+document.querySelectorAll(".card").forEach(c=>c.addEventListener("mouseenter",()=>focusPoint(+c.dataset.i,false)));
+
+function tick(){const t=aktobeNow();document.getElementById("clock").textContent=`${pad(t.h)}:${pad(t.m)} UTC+5`;
+ document.querySelectorAll("[data-status]").forEach(c=>{const p=POINTS[+c.dataset.status],o=isOpen(p);c.className="chip "+(o?"open":"closed");c.textContent=o?`Открыто до ${p.to}:00`:`Закрыто · откроется в 09:00`})}
+tick();setInterval(tick,30000);
+
+// nearest
+document.getElementById("nearBtn").addEventListener("click",()=>{const msg=document.getElementById("nearMsg");
+ if(!navigator.geolocation){msg.textContent="Браузер не отдаёт геопозицию — выберите точку на схеме.";return}
+ msg.textContent="Определяем, где вы…";
+ navigator.geolocation.getCurrentPosition(pos=>{const {latitude:a,longitude:b}=pos.coords;let best=0,bd=1e9;
+  POINTS.forEach((p,i)=>{const dx=(p.lon-b)*111.3*k,dy=(p.lat-a)*111.1,d=Math.hypot(dx,dy);if(d<bd){bd=d;best=i}});
+  msg.textContent=`Ближайшая: ${POINTS[best].addr}, ≈${bd.toFixed(1)} км`;focusPoint(best,true)},
+  ()=>{msg.textContent="Геопозиция недоступна — выберите точку на схеме."},{timeout:8000})});
+
+// float CTA: hide while hero buttons are on screen
+if('IntersectionObserver' in window){new IntersectionObserver(e=>document.getElementById('float').classList.toggle('hide',e[0].isIntersecting)).observe(document.querySelector('.cta'))}else{document.getElementById('float').classList.remove('hide')}
+
+// hero: oil flow field
+(function(){const c=document.getElementById("flow"),x=c.getContext("2d");let w,h,dpr,parts=[],mx=-999,my=-999,t=0;
+ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const P=new Uint8Array(512);(function(){const p=[...Array(256).keys()];let s=2015;for(let i=255;i>0;i--){s=(s*16807)%2147483647;const j=s%(i+1);[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)P[i]=p[i&255]})();
+ const fade=v=>v*v*(3-2*v),lerp=(a,b,v)=>a+(b-a)*v,gr=(hh,xx,yy)=>((hh&1)?-xx:xx)+((hh&2)?-yy:yy);
+ function noise(X,Y){const xi=Math.floor(X)&255,yi=Math.floor(Y)&255,xf=X-Math.floor(X),yf=Y-Math.floor(Y),u=fade(xf),v=fade(yf);
+  return lerp(lerp(gr(P[P[xi]+yi],xf,yf),gr(P[P[xi+1]+yi],xf-1,yf),u),lerp(gr(P[P[xi]+yi+1],xf,yf-1),gr(P[P[xi+1]+yi+1],xf-1,yf-1),u),v)}
+ function size(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  x.fillStyle="#0E0C0A";x.fillRect(0,0,w,h);const n=Math.round(Math.min(900,w*h/900));parts=Array.from({length:n},spawn)}
+ function spawn(){return {x:Math.random()*w,y:Math.random()*h,l:60+Math.random()*160,a:Math.random()<.18}}
+ function step(){x.fillStyle="rgba(14,12,10,0.06)";x.fillRect(0,0,w,h);t+=0.0016;
+  for(const p of parts){let ang=noise(p.x*0.0022,p.y*0.0022+t)*Math.PI*2.2+0.35;
+   const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;if(d2<14000){ang=Math.atan2(dy,dx)+Math.PI/2}
+   const nx=p.x+Math.cos(ang)*1.3,ny=p.y+Math.sin(ang)*1.3;
+   x.strokeStyle=p.a?"rgba(255,107,15,0.75)":"rgba(246,181,69,0.38)";x.lineWidth=p.a?1.6:1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();
+   p.x=nx;p.y=ny;if(--p.l<0||p.x<0||p.x>w||p.y<0||p.y>h)Object.assign(p,spawn())}}
+ size();addEventListener("resize",size);
+ c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+ c.parentElement.addEventListener("pointerleave",()=>{mx=my=-999});
+ if(reduce){for(let i=0;i<260;i++)step()}else{for(let i=0;i<120;i++)step();(function loop(){step();requestAnimationFrame(loop)})()}
+})();
+</script>
+</body>
+</html>
